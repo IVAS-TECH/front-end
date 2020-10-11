@@ -1,7 +1,7 @@
 import React from 'react';
 import Email from './../../component/formField/Email';
 import Password from './../../component/formField/Password';
-import Button from '@material-ui/core/Button';
+import Button from './../../component/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -24,29 +24,24 @@ const Form: React.FC<{}> = () => {
             <Password value="test" name="password" label="Password" onValueChange={v => console.log(v)}/>
             <Button
                 fullWidth
-                variant='contained'
-                color='primary'
-                className={classes.button}>
-                Sign in
-            </Button>
+                className={classes.button}
+                text="Sign in" />
             <Grid container direction='row' spacing={6}>
                 <Grid item xs>
                 <Button
                     fullWidth
-                    variant='outlined'
-                    color='secondary'
-                    className={classes.button}>
-                    Forgot password?
-                </Button>
+                    outlined
+                    secondary
+                    className={classes.button}
+                    text="Forgot password?" />
                 </Grid>
                 <Grid item xs>
                     <Button
                         fullWidth
-                        variant='outlined'
-                        color='secondary'
-                        className={classes.button}>
-                        Create organization
-                    </Button>
+                        outlined
+                        secondary
+                        className={classes.button}
+                        text="Create organization" />
                 </Grid>
             </Grid>
         </form>
