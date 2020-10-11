@@ -23,6 +23,7 @@ export interface TextInputProps extends MuiProps {
     value: string,
     label: string,
     error?: string,
+    endAdornment?: JSX.Element,
     onValueChange: (value: string) => void,
     onFocus?: () => void,
     onBlur?: () => void
@@ -52,15 +53,18 @@ const TextInput: React.FC<TextInputProps> = ({
     error,
     secondary,
     helperText,
+    endAdornment,
     ...rest
 }) => (
     <TextField
         {...rest}
         variant="filled"
+        margin="normal"
         value={value}
         error={!!error}
         helperText={!!error ? error : helperText}
         color={secondary ? 'secondary' : 'primary'}
+        InputProps={{ endAdornment }}
         onChange={handleOnChangeEvent(value, onValueChange)}
     />
 );

@@ -1,5 +1,6 @@
 import React from 'react';
 import Email from './../../component/formField/Email';
+import Password from './../../component/formField/Password';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,6 +21,7 @@ const Form: React.FC<{}> = () => {
     return (
         <form className={classes.form} noValidate>
             <Email className={classes.test} value="ivo@mail.bg" onValueChange={v => console.log(v)}/>
+            <Password value="test" name="password" label="Password" onValueChange={v => console.log(v)}/>
             <Button
                 fullWidth
                 variant='contained'
