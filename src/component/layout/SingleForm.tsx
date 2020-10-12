@@ -8,7 +8,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(10),
-        padding: theme.spacing(4),
+        padding: theme.spacing(3),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center'
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 interface Props {
     icon: JSX.Element,
     title: string,
-    children: JSX.Element
+    children: JSX.Element | JSX.Element[]
 }
 
 const Layout: React.FC<Props> = ({ icon, title, children }) => {

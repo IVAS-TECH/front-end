@@ -2,7 +2,6 @@ import React from 'react';
 import Email from './../../component/formField/Email';
 import Password from './../../component/formField/Password';
 import Button from './../../component/Button';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import useFormController from './hook/useFormController';
 
@@ -11,7 +10,7 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         marginTop: theme.spacing(1)
     },
-    button: { margin: theme.spacing(4, 0, 2, 0) },
+    button: { margin: theme.spacing(4, 0, 4, 0) },
 }));
 
 const Form: React.FC<{}> = () => {
@@ -54,24 +53,6 @@ const Form: React.FC<{}> = () => {
                 className={classes.button}
                 onClick={signIn}
                 text="Sign in" />
-            <Grid container direction='row' spacing={6}>
-                <Grid item xs>
-                <Button
-                    fullWidth
-                    outlined
-                    secondary
-                    className={classes.button}
-                    text="Forgot password?" />
-                </Grid>
-                <Grid item xs>
-                    <Button
-                        fullWidth
-                        outlined
-                        secondary
-                        className={classes.button}
-                        text="Create organization" />
-                </Grid>
-            </Grid>
         </form>
     );
 };
