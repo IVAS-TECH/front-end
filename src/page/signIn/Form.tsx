@@ -21,7 +21,9 @@ const Form: React.FC<{}> = () => {
         setEmail,
         setPassword,
         validateEmail,
-        clearEmailError
+        validatePassword,
+        clearEmailError,
+        clearPasswordError
     } = useFormController();
 
     return (
@@ -34,9 +36,12 @@ const Form: React.FC<{}> = () => {
                 onBlur={validateEmail} />
             <Password
                 value={formData.password}
+                error={formData.passwordError}
                 name="password"
                 label="Password"
-                onValueChange={setPassword} />
+                onValueChange={setPassword}
+                onFocus={clearPasswordError}
+                onBlur={validatePassword} />
             <Button
                 fullWidth
                 className={classes.button}

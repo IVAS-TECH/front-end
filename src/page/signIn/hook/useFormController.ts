@@ -1,8 +1,11 @@
 import React from 'react';
 import { Maybe, Nothing } from 'purify-ts/Maybe'
 import { EmailError, emailValidator } from '../../../formFieldValidator/email';
+import { PasswordError, passwordValidator } from '../../../formFieldValidator/password';
 import { update2 } from '../../../utility/update';
 import emailErrorMessage from '../../../errorMessage/email';
+import passwordErrorMessage from '../../../errorMessage/password';
+
 
 interface State {
     value: {
@@ -10,7 +13,8 @@ interface State {
         password: string
     },
     error: {
-        email: Maybe<EmailError>
+        email: Maybe<EmailError>,
+        password: Maybe<PasswordError>
     }
 }
 
@@ -28,11 +32,25 @@ interface ValidateEmail {
     type: 'validate-email'
 }
 
+interface ValidatePassword {
+    type: 'validate-password';
+}
+
+interface ClearPasswordError {
+    type: 'clear-password-error';
+}
+
 interface ClearEmailError {
     type: 'clear-email-error'
 }
 
-type Action = SetEmail | SetPassword | ValidateEmail | ClearEmailError;
+type Action
+= SetEmail
+| SetPassword
+| ValidateEmail
+| ValidatePassword
+| ClearEmailError
+| ClearPasswordError;
 
 function reducer(state: State, action: Action) {
     switch(action.type) {
@@ -44,8 +62,14 @@ function reducer(state: State, action: Action) {
             return update2(state, 'error', 'email',
                 emailValidator(state.value.email)
             );
+        case 'validate-password':
+            return update2(state, 'error', 'password',
+                passwordValidator(state.value.password)
+            );
         case 'clear-email-error':
             return update2(state, 'error', 'email', Nothing);
+        case 'clear-password-error':
+            return update2(state, 'error', 'password', Nothing);
     }
 }
 
@@ -55,7 +79,8 @@ const initialState: State = {
         password: ''
     },
     error: {
-        email: Nothing
+        email: Nothing,
+        password: Nothing
     }
 };
 
@@ -69,7 +94,11 @@ function setPassword(value: string): SetPassword {
 
 const validateEmail: ValidateEmail = { type: 'validate-email' };
 
+const validatePassword: ValidatePassword = { type: 'validate-password' };
+
 const clearEmailError: ClearEmailError = { type: 'clear-email-error' };
+
+const clearPasswordError: ClearPasswordError = { type: 'clear-password-error' };
 
 export default function useFormController() {
     const [state, dispatch] = React.useReducer(reducer, initialState);
@@ -78,11 +107,14 @@ export default function useFormController() {
         formData: {
             email: state.value.email,
             password: state.value.password,
-            emailError: emailErrorMessage(state.error.email)
+            emailError: emailErrorMessage(state.error.email),
+            passwordError: passwordErrorMessage(state.error.password)
         },
         setEmail: (value: string) => dispatch(setEmail(value)),
         setPassword: (value: string) => dispatch(setPassword(value)),
         validateEmail: () => dispatch(validateEmail),
-        clearEmailError: () => dispatch(clearEmailError)
+        validatePassword: () => dispatch(validatePassword),
+        clearEmailError: () => dispatch(clearEmailError),
+        clearPasswordError: () => dispatch(clearPasswordError)
     };
 };
