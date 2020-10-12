@@ -33,6 +33,7 @@ const changeableProps: Array<keyof TextInputProps> = [
     'disabled',
     'helperText',
     'placeholder',
+    'error',
     'value',
     'label',
     'type'

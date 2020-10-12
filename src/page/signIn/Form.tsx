@@ -4,24 +4,39 @@ import Password from './../../component/formField/Password';
 import Button from './../../component/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import useFormController from './hook/useFormController';
 
 const useStyles = makeStyles(theme => ({
     form: {
         width: '100%',
         marginTop: theme.spacing(1)
     },
-    test: {
-        backgroundColor: theme.palette.warning.main
-    },
     button: { margin: theme.spacing(4, 0, 2, 0) },
 }));
 
 const Form: React.FC<{}> = () => {
     const classes = useStyles();
+    const {
+        formData,
+        setEmail,
+        setPassword,
+        validateEmail,
+        clearEmailError
+    } = useFormController();
+
     return (
         <form className={classes.form} noValidate>
-            <Email className={classes.test} value="ivo@mail.bg" onValueChange={v => console.log(v)}/>
-            <Password value="test" name="password" label="Password" onValueChange={v => console.log(v)}/>
+            <Email
+                value={formData.email}
+                error={formData.emailError}
+                onValueChange={setEmail}
+                onFocus={clearEmailError}
+                onBlur={validateEmail} />
+            <Password
+                value={formData.password}
+                name="password"
+                label="Password"
+                onValueChange={setPassword} />
             <Button
                 fullWidth
                 className={classes.button}
