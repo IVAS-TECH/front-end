@@ -17,7 +17,8 @@ export interface ButtonProps {
 
 const changeableProps: Array<keyof ButtonProps> = [
     'text',
-    'disabled'
+    'disabled',
+    'onClick'
 ];
 
 const Button: React.FC<ButtonProps> = ({

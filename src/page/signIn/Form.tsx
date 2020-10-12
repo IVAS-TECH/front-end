@@ -17,34 +17,42 @@ const useStyles = makeStyles(theme => ({
 const Form: React.FC<{}> = () => {
     const classes = useStyles();
     const {
+        formState,
         formData,
-        setEmail,
-        setPassword,
-        validateEmail,
-        validatePassword,
-        clearEmailError,
-        clearPasswordError
+        action,
+        validateForm,
+        isValidForm
     } = useFormController();
+
+    const signIn = React.useCallback(() => {
+        const formStateAfterValidation = validateForm(formState);
+        if(!isValidForm(formStateAfterValidation)) {
+            action.setFormState(formStateAfterValidation);
+        } else {
+            console.log('valid');
+        }
+    }, [formState]);
 
     return (
         <form className={classes.form} noValidate>
             <Email
                 value={formData.email}
                 error={formData.emailError}
-                onValueChange={setEmail}
-                onFocus={clearEmailError}
-                onBlur={validateEmail} />
+                onValueChange={action.setEmail}
+                onFocus={action.clearEmailError}
+                onBlur={action.validateEmail} />
             <Password
                 value={formData.password}
                 error={formData.passwordError}
                 name="password"
                 label="Password"
-                onValueChange={setPassword}
-                onFocus={clearPasswordError}
-                onBlur={validatePassword} />
+                onValueChange={action.setPassword}
+                onFocus={action.clearPasswordError}
+                onBlur={action.validatePassword} />
             <Button
                 fullWidth
                 className={classes.button}
+                onClick={signIn}
                 text="Sign in" />
             <Grid container direction='row' spacing={6}>
                 <Grid item xs>
