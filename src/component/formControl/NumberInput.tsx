@@ -76,6 +76,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
         {...rest}
 variant={(outlined ? 'outlined' : 'filled') as any /* Typescirpt bug! At version 4.0.3 there is no problem */}
         margin="normal"
+        type="number"
         value={value}
         error={!!error}
         helperText={error || helperText}
