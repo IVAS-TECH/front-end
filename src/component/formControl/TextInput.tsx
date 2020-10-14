@@ -1,9 +1,9 @@
 import React from 'react';
-import TextField, { FilledTextFieldProps } from '@material-ui/core/TextField';
+import TextField, { TextFieldProps } from '@material-ui/core/TextField';
 import comparator from './../../utility/compareProps';
 
 export type MuiProps
-= Pick<FilledTextFieldProps,
+= Pick<TextFieldProps,
     'autoComplete' |
     'autoFocus' |
     'className' |
@@ -20,6 +20,7 @@ export type MuiProps
 
 export interface TextInputProps extends MuiProps {
     secondary?: boolean,
+    outlined?: boolean,
     value: string,
     label: string,
     error?: string,
@@ -53,17 +54,18 @@ const TextInput: React.FC<TextInputProps> = ({
     onValueChange,
     error,
     secondary,
+    outlined,
     helperText,
     endAdornment,
     ...rest
 }) => (
     <TextField
         {...rest}
-        variant="filled"
+variant={(outlined ? 'outlined' : 'filled') as any /* Typescirpt bug! At version 4.0.3 there is no problem */}
         margin="normal"
         value={value}
         error={!!error}
-        helperText={!!error ? error : helperText}
+        helperText={error || helperText}
         color={secondary ? 'secondary' : 'primary'}
         InputProps={{ endAdornment }}
         onChange={handleOnChangeEvent(value, onValueChange)}
