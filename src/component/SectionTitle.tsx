@@ -7,7 +7,7 @@ interface SectionTitleProps {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => (
     <Typography
-        variant="h4"
+        variant="h6"
         align="left"
         gutterBottom
         color="textPrimary" >

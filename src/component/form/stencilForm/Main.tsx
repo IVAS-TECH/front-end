@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Form from './Form';
 
-const width = 1000;
+const width = 1020;
 
 const useStyles = makeStyles(theme => ({
     layout: {
