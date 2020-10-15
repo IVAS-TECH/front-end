@@ -9,6 +9,7 @@ import SheetThickness from '../../formField/stencil/SheetThickness';
 import FidushalMarks from '../../formField/stencil/FidushalMarks';
 import FidushalMarksKind from '../../formField/stencil/FidushalMarksKind';
 import FidushalMarksSide from '../../formField/stencil/FidushalMarksSide';
+import ModificationRequirements from '../../formField/stencil/ModificationRequirements';
 
 const Form: React.FC<{}> = () => (
     <form noValidate>
@@ -38,6 +39,9 @@ const Form: React.FC<{}> = () => (
                 <FidushalMarksSide />
             </Grid>
         </Grid>
+        <Divider />
+        <SectionTitle title="Apertures mudification and image positioning requirements" />
+        <ModificationRequirements />
         <Divider />
     </form>
 );
