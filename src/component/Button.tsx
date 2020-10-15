@@ -11,7 +11,7 @@ export interface ButtonProps {
     fullWidth?: boolean,
     href?: string,
     large?: boolean,
-    startIcon?: JSX.Element,
+    endIcon?: JSX.Element,
     outlined?: boolean
 };
 
