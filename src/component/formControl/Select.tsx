@@ -22,9 +22,7 @@ export interface SelectProps<Value extends string | number> extends FormControlP
     onValueChange: (value: Value) => void,
     notSelectedText?: string,
     options: Array<Value>
-    optionText: {
-        [V in Value]: string
-    }
+    optionText: Record<Value, string>
 };
 
 function changeableProps<Value extends string | number>()
