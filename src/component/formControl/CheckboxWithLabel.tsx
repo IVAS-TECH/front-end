@@ -5,7 +5,7 @@ import comparator from './../../utility/compareProps';
 
 export interface CheckboxWithLabelProps extends CheckboxProps {
     label: string,
-    labelAtStart?: boolean
+    labelAtEnd?: boolean
 };
 
 const changeableProps: Array<keyof CheckboxWithLabelProps> = [
@@ -16,12 +16,12 @@ const changeableProps: Array<keyof CheckboxWithLabelProps> = [
 
 const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
     label,
-    labelAtStart,
+    labelAtEnd,
     ...checkboxProps
 }) => (
     <FormControlLabel
         label={label}
-        labelPlacement={labelAtStart ? 'start' : 'end'}
+        labelPlacement={labelAtEnd ? 'end' : 'start'}
         control={<Checkbox {...checkboxProps} />}
     />
 );
