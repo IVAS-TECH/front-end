@@ -14,6 +14,11 @@ import TextFromRackelSide from '../../formField/stencil/TextFromRackelSide';
 import RackelSideText from '../../formField/stencil/RackelSideText';
 import TextFromPCBSide from '../../formField/stencil/TextFromPCBSide';
 import PCBSideText from '../../formField/stencil/PCBSideText';
+import Multiply from '../../formField/stencil/Multiply';
+import PanelsCountX from '../../formField/stencil/PanelsCountX';
+import PanelsCountY from '../../formField/stencil/PanelsCountY';
+import XStep from '../../formField/stencil/XStep';
+import YStep from '../../formField/stencil/YStep';
 
 const Form: React.FC<{}> = () => (
     <form noValidate>
@@ -52,6 +57,23 @@ const Form: React.FC<{}> = () => (
         <RackelSideText />
         <TextFromPCBSide />
         <PCBSideText />
+        <Divider />
+        <SectionTitle title="Multiply" />
+        <Multiply />
+        <Grid container spacing={2}>
+            <Grid item xs={6}>
+                <PanelsCountX />
+            </Grid>
+            <Grid item xs={6}>
+                <XStep />
+            </Grid>
+            <Grid item xs={6}>
+                <PanelsCountY />
+            </Grid>
+            <Grid item xs={6}>
+                <YStep />
+            </Grid>
+        </Grid>
         <Divider />
     </form>
 );
