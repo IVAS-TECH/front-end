@@ -44,7 +44,7 @@ const Field: React.FC<{}> = () => (
     <Select
         required
         id="sheet-thickness-select"
-        label="Sheet thickness"
+        label="Sheet thickness (μm)"
         value={''}
         notSelectedText="Not selected"
         onValueChange={v => console.log(v)}
