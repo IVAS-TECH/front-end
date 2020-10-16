@@ -19,6 +19,10 @@ import PanelsCountX from '../../formField/stencil/PanelsCountX';
 import PanelsCountY from '../../formField/stencil/PanelsCountY';
 import XStep from '../../formField/stencil/XStep';
 import YStep from '../../formField/stencil/YStep';
+import NanoCoating from '../../formField/stencil/NanoCoating';
+import ElectrochemicalPolishing from '../../formField/stencil/ElectrochemicalPolishing';
+import Position from '../../formField/stencil/Position';
+import ImagePosition from '../../formField/stencil/imagePosition/FormField';
 
 const Form: React.FC<{}> = () => (
     <form noValidate>
@@ -75,6 +79,25 @@ const Form: React.FC<{}> = () => (
             </Grid>
         </Grid>
         <Divider />
+        <SectionTitle title="Position" />
+        <Grid container spacing={2}>
+            <Grid item xs={6}>
+                <Position />
+            </Grid>
+            <Grid item xs={6}>
+                <ImagePosition />
+            </Grid>
+        </Grid>
+        <Divider />
+        <SectionTitle title="Additional processing" />
+        <Grid container spacing={2}>
+            <Grid item xs={6}>
+                <NanoCoating />
+            </Grid>
+            <Grid item xs={6}>
+                <ElectrochemicalPolishing />
+            </Grid>
+        </Grid>
     </form>
 );
 
