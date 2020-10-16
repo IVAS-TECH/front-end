@@ -10,6 +10,10 @@ import FidushalMarks from '../../formField/stencil/FidushalMarks';
 import FidushalMarksKind from '../../formField/stencil/FidushalMarksKind';
 import FidushalMarksSide from '../../formField/stencil/FidushalMarksSide';
 import ModificationRequirements from '../../formField/stencil/ModificationRequirements';
+import TextFromRackelSide from '../../formField/stencil/TextFromRackelSide';
+import RackelSideText from '../../formField/stencil/RackelSideText';
+import TextFromPCBSide from '../../formField/stencil/TextFromPCBSide';
+import PCBSideText from '../../formField/stencil/PCBSideText';
 
 const Form: React.FC<{}> = () => (
     <form noValidate>
@@ -42,6 +46,12 @@ const Form: React.FC<{}> = () => (
         <Divider />
         <SectionTitle title="Apertures mudification and image positioning requirements" />
         <ModificationRequirements />
+        <Divider />
+        <SectionTitle title="Text" />
+        <TextFromRackelSide />
+        <RackelSideText />
+        <TextFromPCBSide />
+        <PCBSideText />
         <Divider />
     </form>
 );
