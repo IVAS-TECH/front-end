@@ -1,23 +1,24 @@
 import isNotEmptyString from '../validator/isNotEmptyString';
 import hasMaxLength from '../validator/hasMaxLength';
 import hasMinLength from '../validator/hasMinLength';
-import includesCapitalLetter from '../validator/includesCapitalLetter';
-import includesSmallLetter from '../validator/includesSmallLetter';
+import includesUpperCaseLetter from '../validator/includesUpperCaseLetter';
+import includesLowerCaseLetter from '../validator/includesLowerCaseLetter';
 import includesDigit from '../validator/includesDigit';
 import isAlphaNum from '../validator/isSafeSymbol';
 import createValidator from '../utility/validate';
 
 export enum PasswordError {
-    Required,
-    Min,
-    Max,
-    CapitalLetter,
-    SmallLetter,
-    Digit,
-    Symbol
+    Required = 'required',
+    Min = 'min',
+    Max = 'max',
+    UpperCaseLetter = 'upper-case-letter',
+    LowerCaseLetter = 'lower-case-letter',
+    Digit = 'digit',
+    Symbol = 'symbol'
 };
 
 export const minLength = 8;
+
 export const maxLength = 32;
 
 export const passwordValidator = createValidator([
@@ -25,8 +26,8 @@ export const passwordValidator = createValidator([
     { isValid: isAlphaNum, error: PasswordError.Symbol },
     { isValid: hasMinLength(minLength), error: PasswordError.Min },
     { isValid: hasMaxLength(maxLength), error: PasswordError.Max },
-    { isValid: includesCapitalLetter, error: PasswordError.CapitalLetter },
-    { isValid: includesSmallLetter, error: PasswordError.SmallLetter },
+    { isValid: includesUpperCaseLetter, error: PasswordError.UpperCaseLetter },
+    { isValid: includesLowerCaseLetter, error: PasswordError.LowerCaseLetter },
     { isValid: includesDigit, error: PasswordError.Digit }
 ]);
 

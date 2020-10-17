@@ -13,9 +13,9 @@ function messageFor(error: PasswordError): string {
             return 'Input accepts only letters, digits and - (dash) and _ (under score)';
         case PasswordError.Min: return minLengthErrorMessage;
         case PasswordError.Max: return maxLengthErrorMessage;
-        case PasswordError.CapitalLetter:
+        case PasswordError.UpperCaseLetter:
             return 'Input must contain at least 1 upper case letter';
-        case PasswordError.SmallLetter:
+        case PasswordError.LowerCaseLetter:
             return 'Input must contain at least 1 lower case letter';
         case PasswordError.Digit:
             return 'Input must contain at least 1 digit';

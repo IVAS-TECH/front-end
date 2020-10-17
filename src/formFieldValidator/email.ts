@@ -2,7 +2,10 @@ import isNotEmptyString from '../validator/isNotEmptyString';
 import isEmail from '../validator/isEmail';
 import createValidator from '../utility/validate';
 
-export enum EmailError { Required, Email };
+export enum EmailError {
+    Required = 'required',
+    Email = 'email'
+};
 
 export const emailValidator = createValidator([
     { isValid: isNotEmptyString, error: EmailError.Required },
