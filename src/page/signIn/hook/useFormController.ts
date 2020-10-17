@@ -3,6 +3,7 @@ import { Maybe, Nothing } from 'purify-ts/Maybe'
 import { EmailError, emailValidator } from '../../../formFieldValidator/email';
 import { PasswordError, passwordValidator } from '../../../formFieldValidator/password';
 import { update2 } from '../../../utility/update';
+import equalMaybes from '../../../utility/equalMaybes';
 import emailErrorMessage from '../../../errorMessage/email';
 import passwordErrorMessage from '../../../errorMessage/password';
 
@@ -97,16 +98,18 @@ function reducer(state: State, action: Action): State {
             return update2(state, 'value', 'password', action.payload);
         case 'validate-email':
             return update2(state, 'error', 'email',
-                emailValidator(state.value.email)
+                emailValidator(state.value.email),
+                equalMaybes
             );
         case 'validate-password':
             return update2(state, 'error', 'password',
-                passwordValidator(state.value.password)
+                passwordValidator(state.value.password),
+                equalMaybes
             );
         case 'clear-email-error':
-            return update2(state, 'error', 'email', Nothing);
+            return update2(state, 'error', 'email', Nothing, equalMaybes);
         case 'clear-password-error':
-            return update2(state, 'error', 'password', Nothing);
+            return update2(state, 'error', 'password', Nothing, equalMaybes);
         case 'validate-form':
             return validateFieldAction.reduce(reducer, state);
         case 'set-state': return action.payload;
