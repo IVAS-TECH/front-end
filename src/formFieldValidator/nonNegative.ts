@@ -8,7 +8,7 @@ export enum NonNegativeNumberError {
 };
 
 export const positiveNumberValidator = createValidator([
-    {isValid: isNumber, error: NonNegativeNumberError.Required },
+    { isValid: isNumber, error: NonNegativeNumberError.Required },
     { isValid: isNonNegative, error: NonNegativeNumberError.NonNegative }
 ]);
 
