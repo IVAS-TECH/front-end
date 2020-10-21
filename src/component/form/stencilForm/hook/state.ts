@@ -9,14 +9,14 @@ import { SelectError } from '../../../../formFieldValidator/select';
 import { NonNegativeNumberError } from '../../../../formFieldValidator/nonNegative';
 import { TextError } from '../../../../formFieldValidator/text';
 
-interface State {
+export interface State {
     values: {
         fileIsFromRackelSide: boolean,
         count: '' | number,
         sheetThickness: '' | SheetThickness,
-        fudishalMarks: boolean,
-        fudishalMarksKind: '' | FidushalMarksKind,
-        fudishalMarksSide: '' | FidushalMarksSide,
+        fidushalMarks: boolean,
+        fidushalMarksKind: '' | FidushalMarksKind,
+        fidushalMarksSide: '' | FidushalMarksSide,
         modificationsRequirements: string,
         includeTextFromRackelSide: boolean,
         textFromRackelSide: string,
@@ -48,14 +48,14 @@ interface State {
     }
 }
 
-const empty: State = {
+export const empty: State = {
     values: {
         fileIsFromRackelSide: false,
         count: 1,
         sheetThickness: '',
-        fudishalMarks: false,
-        fudishalMarksKind: '',
-        fudishalMarksSide: '',
+        fidushalMarks: false,
+        fidushalMarksKind: '',
+        fidushalMarksSide: '',
         modificationsRequirements: '',
         includeTextFromRackelSide: false,
         textFromRackelSide: '',
@@ -464,3 +464,49 @@ interface ClearImagePositionError {
 
 export const clearImagePositionError: ClearImagePositionError
     = { type:'clear-image-position-error' };
+
+export type Action
+    = TogleFileSide
+    | SetCount
+    | SetSheetThickness
+    | TogleFidushalMarks
+    | SetFidushalMarksKind
+    | SetFidushalMarksSide
+    | SetModificationsRequirements
+    | TogleTextFromRackelSide
+    | SetTextFromRackelSide
+    | TogleTextFromPCBSide
+    | SetTextFromPCBSide
+    | TogleMultiply
+    | SetPanelsCountX
+    | SetStepX
+    | SetPanelsCountY
+    | SetStepY
+    | SetPosition
+    | SetImagePosition
+    | TogleNanoCoating
+    | TogleElectrochemicalPolishing
+    | ValidateCount
+    | ValidateSheetThickness
+    | ValidateFidushalMarksKind
+    | ValidateFidushalMarksSide
+    | ValidateTextFromRackelSide
+    | ValidateTextFromPCBSide
+    | ValidatePanelsCountX
+    | ValidateStepX
+    | ValidatePanelsCountY
+    | ValidateStepY
+    | ValidatePosition
+    | ValidateImagePosition
+    | ClearCountError
+    | ClearSheetThicknessError
+    | ClearFidushalMarksKindError
+    | ClearFidushalMarksSideError
+    | ClearTextFromRackelSideError
+    | ClearTextFromPCBSideError
+    | ClearPanelsCountXError
+    | ClearStepXError
+    | ClearPanelsCountYError
+    | ClearStepYError
+    | ClearPositionError
+    | ClearImagePositionError ;
