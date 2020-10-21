@@ -292,3 +292,175 @@ interface TogleElectrochemicalPolishing {
 
 export const togleElectrochemicalPolishing: TogleElectrochemicalPolishing
     = { type: 'togle-electrochemical-polishing' };
+
+interface ValidateCount {
+    type: 'validate-count'
+}
+
+export const validateCount: ValidateCount
+    = { type: 'validate-count' };
+
+interface ValidateSheetThickness {
+    type: 'validate-sheet-thickness'
+}
+
+export const validateSheetThickness: ValidateSheetThickness
+    = { type: 'validate-sheet-thickness' };
+
+interface ValidateFidushalMarksKind {
+    type: 'validate-fidushal-marks-kind'
+}
+
+export const validateFidushalMarksKind: ValidateFidushalMarksKind
+    = { type: 'validate-fidushal-marks-kind' };
+
+interface ValidateFidushalMarksSide {
+    type: 'validate-fidushal-marks-side'
+}
+
+export const validateFidushalMarksSide: ValidateFidushalMarksSide
+    = { type: 'validate-fidushal-marks-side' };
+
+interface ValidateTextFromRackelSide {
+    type: 'validate-text-from-rackel-side'
+}
+
+export const validateTextFromRackelSide: ValidateTextFromRackelSide
+    = { type: 'validate-text-from-rackel-side' };
+
+interface ValidateTextFromPCBSide {
+    type: 'validate-text-from-pcb-side'
+}
+
+export const validateTextFromPCBSide: ValidateTextFromPCBSide
+    = { type: 'validate-text-from-pcb-side' };
+
+interface ValidatePanelsCountX {
+    type: 'validate-panels-count-x'
+}
+
+export const validatePanelsCountX: ValidatePanelsCountX
+    = { type: 'validate-panels-count-x' };
+
+
+interface ValidateStepX {
+    type: 'validate-step-x'
+}
+
+export const validateStepX: ValidateStepX
+    = { type: 'validate-step-x' };
+
+interface ValidatePanelsCountY {
+    type: 'validate-panels-count-y'
+}
+
+export const validatePanelsCountY: ValidatePanelsCountY
+    = { type: 'validate-panels-count-y' };
+
+
+interface ValidateStepY {
+    type: 'validate-step-y'
+}
+
+export const validateStepY: ValidateStepY
+    = { type: 'validate-step-y' };
+
+interface ValidatePosition {
+    type: 'validate-position'
+}
+
+export const validatePosition: ValidatePosition
+    = { type:'validate-position' };
+
+interface ValidateImagePosition {
+    type: 'validate-image-position'
+}
+
+export const validateImagePosition: ValidateImagePosition
+    = { type:'validate-image-position' };
+
+interface ClearCountError {
+    type: 'clear-count-error'
+}
+
+export const clearCountError: ClearCountError
+    = { type: 'clear-count-error' };
+
+interface ClearSheetThicknessError {
+    type: 'clear-sheet-thickness-error'
+}
+
+export const clearSheetThicknessError: ClearSheetThicknessError
+    = { type: 'clear-sheet-thickness-error' };
+
+interface ClearFidushalMarksKindError {
+    type: 'clear-fidushal-marks-kind-error'
+}
+
+export const clearFidushalMarksKindError: ClearFidushalMarksKindError
+    = { type: 'clear-fidushal-marks-kind-error' };
+
+interface ClearFidushalMarksSideError {
+    type: 'clear-fidushal-marks-side-error'
+}
+
+export const clearFidushalMarksSideError: ClearFidushalMarksSideError
+    = { type: 'clear-fidushal-marks-side-error' };
+
+interface ClearTextFromRackelSideError {
+    type: 'clear-text-from-rackel-side-error'
+}
+
+export const clearTextFromRackelSideError: ClearTextFromRackelSideError
+    = { type: 'clear-text-from-rackel-side-error' };
+
+interface ClearTextFromPCBSideError {
+    type: 'clear-text-from-pcb-side-error'
+}
+
+export const clearTextFromPCBSideError: ClearTextFromPCBSideError
+    = { type: 'clear-text-from-pcb-side-error' };
+
+interface ClearPanelsCountXError {
+    type: 'clear-panels-count-x-error'
+}
+
+export const clearPanelsCountXError: ClearPanelsCountXError
+    = { type: 'clear-panels-count-x-error' };
+
+
+interface ClearStepXError {
+    type: 'clear-step-x-error'
+}
+
+export const clearStepXError: ClearStepXError
+    = { type: 'clear-step-x-error' };
+
+interface ClearPanelsCountYError {
+    type: 'clear-panels-count-y-error'
+}
+
+export const clearPanelsCountYError: ClearPanelsCountYError
+    = { type: 'clear-panels-count-y-error' };
+
+
+interface ClearStepYError {
+    type: 'clear-step-y-error'
+}
+
+export const clearStepYError: ClearStepYError
+    = { type: 'clear-step-y-error' };
+
+interface ClearPositionError {
+    type: 'clear-position-error'
+}
+
+export const clearPositionError: ClearPositionError
+    = { type:'clear-position-error' };
+
+interface ClearImagePositionError {
+    type: 'clear-image-position-error'
+}
+
+export const clearImagePositionError: ClearImagePositionError
+    = { type:'clear-image-position-error' };
