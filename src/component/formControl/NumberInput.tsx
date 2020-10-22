@@ -55,10 +55,52 @@ function handleOnChangeEvent(
     }
 }
 
-function handleOnKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
-    if(event.key === '.') {
-        event.stopPropagation();
-        event.preventDefault();
+type KeyboardEvent = React.KeyboardEvent<HTMLInputElement>;
+
+function handleOnKeyPress(event: KeyboardEvent, value: number | '', integer: boolean) {
+    switch(event.key) {
+        case '.': {
+            if(integer || value === '' || value.toString().includes('.')) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            break;
+        }
+        case '+': {
+            event.stopPropagation();
+            event.preventDefault();
+            break;
+        }
+        case '-': {
+            if(value !== '') {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            break;
+        }
+        case 'e': {
+            event.stopPropagation();
+            event.preventDefault();
+            break;
+        }
+        case '0': {
+            if(value !== '') {
+                if(value === 0) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+            }
+            break;
+        }
+        default: {
+            const first = event.key[0];
+            if(first >= '1' && first <= '9') {
+                if(value === 0) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+            } 
+        }
     }
 }
 
@@ -82,7 +124,7 @@ variant={(outlined ? 'outlined' : 'filled') as any /* Typescirpt bug! At version
         helperText={error || helperText}
         color={secondary ? 'secondary' : 'primary'}
         onChange={handleOnChangeEvent(value, onValueChange)}
-        onKeyDown={floatingPoint ? undefined : handleOnKeyDown} />
+        onKeyPress={(e: KeyboardEvent) => handleOnKeyPress(e, value, !floatingPoint)} />
 );
 
 const compare = comparator<NumberInputProps>(changeableProps);
