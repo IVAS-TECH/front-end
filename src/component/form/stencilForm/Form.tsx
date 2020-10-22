@@ -23,82 +23,85 @@ import NanoCoating from '../../formField/stencil/NanoCoating';
 import ElectrochemicalPolishing from '../../formField/stencil/ElectrochemicalPolishing';
 import Position from '../../formField/stencil/Position';
 import ImagePosition from '../../formField/stencil/imagePosition/FormField';
+import FormData from './FormData';
 
 const Form: React.FC<{}> = () => (
-    <form noValidate>
-        <SectionTitle title="Template" />
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
-                <SelectFile />
+    <FormData>
+        <form noValidate>
+            <SectionTitle title="Template" />
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <SelectFile />
+                </Grid>
+                <Grid item xs={12}>
+                    <FileSide />
+                </Grid>
+                <Grid item xs={6}>
+                    <Count />
+                </Grid>
+                <Grid item xs={6}>
+                    <SheetThickness />
+                </Grid>
             </Grid>
-            <Grid item xs={12}>
-                <FileSide />
+            <Divider />
+            <SectionTitle title="Fidushal marks" />
+            <FidushalMarks />
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <FidushalMarksKind />
+                </Grid>
+                <Grid item xs={6}>
+                    <FidushalMarksSide />
+                </Grid>
             </Grid>
-            <Grid item xs={6}>
-                <Count />
+            <Divider />
+            <SectionTitle title="Apertures mudification and image positioning requirements" />
+            <ModificationRequirements />
+            <Divider />
+            <SectionTitle title="Text" />
+            <TextFromRackelSide />
+            <RackelSideText />
+            <TextFromPCBSide />
+            <PCBSideText />
+            <Divider />
+            <SectionTitle title="Multiply" />
+            <Multiply />
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <PanelsCountX />
+                </Grid>
+                <Grid item xs={6}>
+                    <XStep />
+                </Grid>
+                <Grid item xs={6}>
+                    <PanelsCountY />
+                </Grid>
+                <Grid item xs={6}>
+                    <YStep />
+                </Grid>
             </Grid>
-            <Grid item xs={6}>
-                <SheetThickness />
+            <Divider />
+            <SectionTitle title="Position" />
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <Position />
+                </Grid>
+                <Grid item xs={6}>
+                    <ImagePosition />
+                </Grid>
             </Grid>
-        </Grid>
-        <Divider />
-        <SectionTitle title="Fidushal marks" />
-        <FidushalMarks />
-        <Grid container spacing={2}>
-            <Grid item xs={6}>
-                <FidushalMarksKind />
+            <Divider />
+            <SectionTitle title="Additional processing" />
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <NanoCoating />
+                </Grid>
+                <Grid item xs={6}>
+                    <ElectrochemicalPolishing />
+                </Grid>
             </Grid>
-            <Grid item xs={6}>
-                <FidushalMarksSide />
-            </Grid>
-        </Grid>
-        <Divider />
-        <SectionTitle title="Apertures mudification and image positioning requirements" />
-        <ModificationRequirements />
-        <Divider />
-        <SectionTitle title="Text" />
-        <TextFromRackelSide />
-        <RackelSideText />
-        <TextFromPCBSide />
-        <PCBSideText />
-        <Divider />
-        <SectionTitle title="Multiply" />
-        <Multiply />
-        <Grid container spacing={2}>
-            <Grid item xs={6}>
-                <PanelsCountX />
-            </Grid>
-            <Grid item xs={6}>
-                <XStep />
-            </Grid>
-            <Grid item xs={6}>
-                <PanelsCountY />
-            </Grid>
-            <Grid item xs={6}>
-                <YStep />
-            </Grid>
-        </Grid>
-        <Divider />
-        <SectionTitle title="Position" />
-        <Grid container spacing={2}>
-            <Grid item xs={6}>
-                <Position />
-            </Grid>
-            <Grid item xs={6}>
-                <ImagePosition />
-            </Grid>
-        </Grid>
-        <Divider />
-        <SectionTitle title="Additional processing" />
-        <Grid container spacing={2}>
-            <Grid item xs={6}>
-                <NanoCoating />
-            </Grid>
-            <Grid item xs={6}>
-                <ElectrochemicalPolishing />
-            </Grid>
-        </Grid>
-    </form>
+        </form>
+    </FormData>
 );
 
 export default Form;

@@ -1,4 +1,4 @@
-import { Maybe, Nothing } from 'purify-ts/Maybe'
+import { Nothing } from 'purify-ts/Maybe'
 import { update2 } from '../../../../utility/update';
 import runState from '../../../../utility/runState';
 import conditional from '../../../../utility/conditional';
