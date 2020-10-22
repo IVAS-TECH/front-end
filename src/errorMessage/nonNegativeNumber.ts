@@ -1,4 +1,4 @@
-import { NonNegativeNumberError } from '../formFieldValidator/nonNegative';
+import { NonNegativeNumberError } from '../formFieldValidator/nonNegativeNumber';
 import { Maybe } from 'purify-ts/Maybe'
 
 function messageFor(error: NonNegativeNumberError): string {

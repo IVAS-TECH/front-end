@@ -7,9 +7,9 @@ export enum NonNegativeNumberError {
     NonNegative = 'non-negative'
 };
 
-export const positiveNumberValidator = createValidator([
+export const nonNegativeNumberValidator = createValidator([
     { isValid: isNumber, error: NonNegativeNumberError.Required },
     { isValid: isNonNegative, error: NonNegativeNumberError.NonNegative }
 ]);
 
-export default positiveNumberValidator;  
+export default nonNegativeNumberValidator;  

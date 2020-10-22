@@ -6,7 +6,7 @@ import SheetThickness from '../../../../type/stencil/SheetThickness';
 import { Maybe, Nothing } from 'purify-ts';
 import { PositiveNumberError } from '../../../../formFieldValidator/positiveNumber';
 import { SelectError } from '../../../../formFieldValidator/select';
-import { NonNegativeNumberError } from '../../../../formFieldValidator/nonNegative';
+import { NonNegativeNumberError } from '../../../../formFieldValidator/nonNegativeNumber';
 import { TextError } from '../../../../formFieldValidator/text';
 
 export interface State {
