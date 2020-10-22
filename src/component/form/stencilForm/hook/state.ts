@@ -386,27 +386,6 @@ interface ClearCountError {
 export const clearCountError: ClearCountError
     = { type: 'clear-count-error' };
 
-interface ClearSheetThicknessError {
-    type: 'clear-sheet-thickness-error'
-}
-
-export const clearSheetThicknessError: ClearSheetThicknessError
-    = { type: 'clear-sheet-thickness-error' };
-
-interface ClearFidushalMarksKindError {
-    type: 'clear-fidushal-marks-kind-error'
-}
-
-export const clearFidushalMarksKindError: ClearFidushalMarksKindError
-    = { type: 'clear-fidushal-marks-kind-error' };
-
-interface ClearFidushalMarksSideError {
-    type: 'clear-fidushal-marks-side-error'
-}
-
-export const clearFidushalMarksSideError: ClearFidushalMarksSideError
-    = { type: 'clear-fidushal-marks-side-error' };
-
 interface ClearTextFromRackelSideError {
     type: 'clear-text-from-rackel-side-error'
 }
@@ -451,20 +430,6 @@ interface ClearStepYError {
 export const clearStepYError: ClearStepYError
     = { type: 'clear-step-y-error' };
 
-interface ClearPositionError {
-    type: 'clear-position-error'
-}
-
-export const clearPositionError: ClearPositionError
-    = { type:'clear-position-error' };
-
-interface ClearImagePositionError {
-    type: 'clear-image-position-error'
-}
-
-export const clearImagePositionError: ClearImagePositionError
-    = { type:'clear-image-position-error' };
-
 export type Action
     = TogleFileSide
     | SetCount
@@ -499,14 +464,9 @@ export type Action
     | ValidatePosition
     | ValidateImagePosition
     | ClearCountError
-    | ClearSheetThicknessError
-    | ClearFidushalMarksKindError
-    | ClearFidushalMarksSideError
     | ClearTextFromRackelSideError
     | ClearTextFromPCBSideError
     | ClearPanelsCountXError
     | ClearStepXError
     | ClearPanelsCountYError
-    | ClearStepYError
-    | ClearPositionError
-    | ClearImagePositionError ;
+    | ClearStepYError;
