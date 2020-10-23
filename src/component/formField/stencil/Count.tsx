@@ -20,6 +20,6 @@ const Count: React.FC<{}> = () => {
             onBlur={() => dispatch(validateCount)}
             onValueChange={v => dispatch(setCount(v))} />
     );
-}
+};
 
 export default Count;

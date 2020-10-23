@@ -1,6 +1,9 @@
 import React from 'react';
 import SheetThickness from '../../../type/stencil/SheetThickness';
 import createSelect from '../../formControl/Select';
+import useFormData from '../../form/stencilForm/hook/useFormData';
+import selectErrorMSG from '../../../errorMessage/select';
+import { setSheetThickness } from '../../form/stencilForm/hook/state';
 
 const Select = createSelect<SheetThickness>();
 
@@ -40,16 +43,25 @@ const options: Array<SheetThickness> = [
     SheetThickness.MM300
 ];
 
-const Field: React.FC<{}> = () => (
-    <Select
-        required
-        id="sheet-thickness-select"
-        label="Sheet thickness (μm)"
-        value={''}
-        notSelectedText="Not selected"
-        onValueChange={v => console.log(v)}
-        options={options}
-        optionText={optionText} />
-);
+const Field: React.FC<{}> = () => {
+    const [{ value, error }, dispatch] = useFormData(
+        state => ({
+            value: state.values.sheetThickness,
+            error: selectErrorMSG(state.errors.sheetThickness)
+        })
+    );
+    return (
+        <Select
+            required
+            id="sheet-thickness-select"
+            label="Sheet thickness (μm)"
+            value={value}
+            error={error}
+            notSelectedText="Not selected"
+            onValueChange={v => dispatch(setSheetThickness(v))}
+            options={options}
+            optionText={optionText} />
+    );
+};
 
 export default Field;
