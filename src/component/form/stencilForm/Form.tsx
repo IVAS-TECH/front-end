@@ -24,9 +24,11 @@ import ElectrochemicalPolishing from '../../formField/stencil/ElectrochemicalPol
 import Position from '../../formField/stencil/Position';
 import ImagePosition from '../../formField/stencil/imagePosition/FormField';
 import FormData from './FormData';
+import useIncludes from './hook/useIncludes';
 
-const Form: React.FC<{}> = () => (
-    <FormData>
+const Form: React.FC<{}> = () => {
+    const include = useIncludes();
+    return (
         <form noValidate>
             <SectionTitle title="Template" />
             <Grid container spacing={2}>
@@ -46,40 +48,45 @@ const Form: React.FC<{}> = () => (
             <Divider />
             <SectionTitle title="Fidushal marks" />
             <FidushalMarks />
-            <Grid container spacing={2}>
-                <Grid item xs={6}>
-                    <FidushalMarksKind />
+            {include.fidushalMarks &&
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <FidushalMarksKind />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <FidushalMarksSide />
+                    </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                    <FidushalMarksSide />
-                </Grid>
-            </Grid>
+            }
             <Divider />
             <SectionTitle title="Apertures mudification and image positioning requirements" />
             <ModificationRequirements />
             <Divider />
             <SectionTitle title="Text" />
             <TextFromRackelSide />
-            <RackelSideText />
+            <br/>
+            {include.rackelSideText && <RackelSideText />}
             <TextFromPCBSide />
-            <PCBSideText />
+            {include.pcbSideText && <PCBSideText />}
             <Divider />
             <SectionTitle title="Multiply" />
             <Multiply />
-            <Grid container spacing={2}>
-                <Grid item xs={6}>
-                    <PanelsCountX />
+            {include.multiply &&
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <PanelsCountX />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <XStep />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <PanelsCountY />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <YStep />
+                    </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                    <XStep />
-                </Grid>
-                <Grid item xs={6}>
-                    <PanelsCountY />
-                </Grid>
-                <Grid item xs={6}>
-                    <YStep />
-                </Grid>
-            </Grid>
+            }
             <Divider />
             <SectionTitle title="Position" />
             <Grid container spacing={2}>
@@ -101,7 +108,13 @@ const Form: React.FC<{}> = () => (
                 </Grid>
             </Grid>
         </form>
+    );
+};
+
+const WithData: React.FC<{}> = () => (
+    <FormData>
+        <Form />
     </FormData>
 );
 
-export default Form;
+export default WithData;
