@@ -6,9 +6,9 @@ import SelectFile from '../../formField/stencil/SelectFile';
 import FileSide from '../../formField/stencil/FileSide';
 import Count from '../../formField/stencil/Count';
 import SheetThickness from '../../formField/stencil/SheetThickness';
-import FidushalMarks from '../../formField/stencil/FidushalMarks';
-import FidushalMarksKind from '../../formField/stencil/FidushalMarksKind';
-import FidushalMarksSide from '../../formField/stencil/FidushalMarksSide';
+import FiducialMarks from '../../formField/stencil/FiducialMarks';
+import FiducialMarksKind from '../../formField/stencil/FiducialMarksKind';
+import FiducialMarksSide from '../../formField/stencil/FiducialMarksSide';
 import ModificationRequirements from '../../formField/stencil/ModificationRequirements';
 import TextFromRackelSide from '../../formField/stencil/TextFromRackelSide';
 import RackelSideText from '../../formField/stencil/RackelSideText';
@@ -46,15 +46,15 @@ const Form: React.FC<{}> = () => {
                 </Grid>
             </Grid>
             <Divider />
-            <SectionTitle title="Fidushal marks" />
-            <FidushalMarks />
-            {include.fidushalMarks &&
+            <SectionTitle title="Fiducial marks" />
+            <FiducialMarks />
+            {include.fiducialMarks &&
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
-                        <FidushalMarksKind />
+                        <FiducialMarksKind />
                     </Grid>
                     <Grid item xs={6}>
-                        <FidushalMarksSide />
+                        <FiducialMarksSide />
                     </Grid>
                 </Grid>
             }

@@ -1,5 +1,5 @@
-import FidushalMarksKind from '../../../../type/stencil/FidushalMarksKind';
-import FidushalMarksSide from '../../../../type/stencil/FidushalMarksSide';
+import FiducialMarksKind from '../../../../type/stencil/FiducialMarksKind';
+import FiducialMarksSide from '../../../../type/stencil/FiducialMarksSide';
 import ImagePosition from '../../../../type/stencil/ImagePosition';
 import Position from '../../../../type/stencil/Position';
 import SheetThickness from '../../../../type/stencil/SheetThickness';
@@ -14,9 +14,9 @@ export interface State {
         fileIsFromRackelSide: boolean,
         count: '' | number,
         sheetThickness: '' | SheetThickness,
-        fidushalMarks: boolean,
-        fidushalMarksKind: '' | FidushalMarksKind,
-        fidushalMarksSide: '' | FidushalMarksSide,
+        fiducialMarks: boolean,
+        fiducialMarksKind: '' | FiducialMarksKind,
+        fiducialMarksSide: '' | FiducialMarksSide,
         modificationsRequirements: string,
         includeTextFromRackelSide: boolean,
         textFromRackelSide: string,
@@ -35,8 +35,8 @@ export interface State {
     errors: {
         count: Maybe<PositiveNumberError>,
         sheetThickness: Maybe<SelectError>,
-        fidushalMarksKind: Maybe<SelectError>,
-        fidushalMarksSide: Maybe<SelectError>,
+        fiducialMarksKind: Maybe<SelectError>,
+        fiducialMarksSide: Maybe<SelectError>,
         textFromRackelSide: Maybe<TextError>,
         textFromPCBSide: Maybe<TextError>,
         panelsCountX: Maybe<PositiveNumberError>,
@@ -53,9 +53,9 @@ export const empty: State = {
         fileIsFromRackelSide: false,
         count: 1,
         sheetThickness: '',
-        fidushalMarks: false,
-        fidushalMarksKind: '',
-        fidushalMarksSide: '',
+        fiducialMarks: false,
+        fiducialMarksKind: '',
+        fiducialMarksSide: '',
         modificationsRequirements: '',
         includeTextFromRackelSide: false,
         textFromRackelSide: '',
@@ -74,8 +74,8 @@ export const empty: State = {
     errors: {
         count: Nothing,
         sheetThickness: Nothing,
-        fidushalMarksKind: Nothing,
-        fidushalMarksSide: Nothing,
+        fiducialMarksKind: Nothing,
+        fiducialMarksSide: Nothing,
         textFromRackelSide: Nothing,
         textFromPCBSide: Nothing,
         panelsCountX: Nothing,
@@ -118,33 +118,33 @@ export function setSheetThickness(thickness: SheetThickness): SetSheetThickness 
     }
 };
 
-interface TogleFidushalMarks {
-    type: 'togle-fidushal-marks'
+interface TogleFiducialMarks {
+    type: 'togle-fiducial-marks'
 }
 
-export const togleFidushalMarks: TogleFidushalMarks
-    = { type: 'togle-fidushal-marks' };
+export const togleFiducialMarks: TogleFiducialMarks
+    = { type: 'togle-fiducial-marks' };
 
-interface SetFidushalMarksKind {
-    type: 'set-fidushal-marks-kind',
-    payload: FidushalMarksKind
+interface SetFiducialMarksKind {
+    type: 'set-fiducial-marks-kind',
+    payload: FiducialMarksKind
 };
 
-export function setFidushalMarksKind(kind: FidushalMarksKind): SetFidushalMarksKind {
+export function setFiducialMarksKind(kind: FiducialMarksKind): SetFiducialMarksKind {
     return {
-        type: 'set-fidushal-marks-kind',
+        type: 'set-fiducial-marks-kind',
         payload: kind
     }
 };
 
-interface SetFidushalMarksSide {
-    type: 'set-fidushal-marks-side',
-    payload: FidushalMarksSide
+interface SetFiducialMarksSide {
+    type: 'set-fiducial-marks-side',
+    payload: FiducialMarksSide
 };
 
-export function setFidushalMarksSide(side: FidushalMarksSide): SetFidushalMarksSide {
+export function setFiducialMarksSide(side: FiducialMarksSide): SetFiducialMarksSide {
     return {
-        type: 'set-fidushal-marks-side',
+        type: 'set-fiducial-marks-side',
         payload: side
     }
 };
@@ -307,19 +307,19 @@ interface ValidateSheetThickness {
 export const validateSheetThickness: ValidateSheetThickness
     = { type: 'validate-sheet-thickness' };
 
-interface ValidateFidushalMarksKind {
-    type: 'validate-fidushal-marks-kind'
+interface ValidateFiducialMarksKind {
+    type: 'validate-fiducial-marks-kind'
 }
 
-export const validateFidushalMarksKind: ValidateFidushalMarksKind
-    = { type: 'validate-fidushal-marks-kind' };
+export const validateFiducialMarksKind: ValidateFiducialMarksKind
+    = { type: 'validate-fiducial-marks-kind' };
 
-interface ValidateFidushalMarksSide {
-    type: 'validate-fidushal-marks-side'
+interface ValidateFiducialMarksSide {
+    type: 'validate-fiducial-marks-side'
 }
 
-export const validateFidushalMarksSide: ValidateFidushalMarksSide
-    = { type: 'validate-fidushal-marks-side' };
+export const validateFiducialMarksSide: ValidateFiducialMarksSide
+    = { type: 'validate-fiducial-marks-side' };
 
 interface ValidateTextFromRackelSide {
     type: 'validate-text-from-rackel-side'
@@ -434,9 +434,9 @@ export type Action
     = TogleFileSide
     | SetCount
     | SetSheetThickness
-    | TogleFidushalMarks
-    | SetFidushalMarksKind
-    | SetFidushalMarksSide
+    | TogleFiducialMarks
+    | SetFiducialMarksKind
+    | SetFiducialMarksSide
     | SetModificationsRequirements
     | TogleTextFromRackelSide
     | SetTextFromRackelSide
@@ -453,8 +453,8 @@ export type Action
     | TogleElectrochemicalPolishing
     | ValidateCount
     | ValidateSheetThickness
-    | ValidateFidushalMarksKind
-    | ValidateFidushalMarksSide
+    | ValidateFiducialMarksKind
+    | ValidateFiducialMarksSide
     | ValidateTextFromRackelSide
     | ValidateTextFromPCBSide
     | ValidatePanelsCountX

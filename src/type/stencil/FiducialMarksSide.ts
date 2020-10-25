@@ -1,7 +1,7 @@
-enum FidushalMarksSide {
+enum FiducialMarksSide {
     PCBSide = 'PCB-side',
     RacelSide = 'Rackel-side',
     BothSides = 'both-sides'
 };
 
-export default FidushalMarksSide;
+export default FiducialMarksSide;

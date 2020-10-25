@@ -14,17 +14,17 @@ type BooleanValueKey = { [K in keyof State['values']] -?: State['values'][K] ext
 const togle: (state: State, key: BooleanValueKey) => State
     = (state, key) => update2(state, 'values', key, !state.values[key]);
 
-const togleFidushalMarks
+const togleFiducialMarks
     : (state: State) => State
     = state => runState([
-        s => togle(s, 'fidushalMarks'),
+        s => togle(s, 'fiducialMarks'),
         conditional(
-            s => s.values.fidushalMarks === false,
+            s => s.values.fiducialMarks === false,
             t => runState([
-                s => update2(s, 'values', 'fidushalMarksKind', ''),
-                s => update2(s, 'values', 'fidushalMarksSide', ''),
-                s => update2(s, 'errors', 'fidushalMarksKind', Nothing, equalMaybes),
-                s => update2(s, 'errors', 'fidushalMarksSide', Nothing, equalMaybes)
+                s => update2(s, 'values', 'fiducialMarksKind', ''),
+                s => update2(s, 'values', 'fiducialMarksSide', ''),
+                s => update2(s, 'errors', 'fiducialMarksKind', Nothing, equalMaybes),
+                s => update2(s, 'errors', 'fiducialMarksSide', Nothing, equalMaybes)
             ], t)
         ),
     ], state);
@@ -82,12 +82,12 @@ export default function reducer(state: State, action: Action): State {
             return update2(state, 'values', 'count', action.payload);
         case 'set-sheet-thickness':
             return update2(state, 'values', 'sheetThickness', action.payload);
-        case 'togle-fidushal-marks':
-            return togleFidushalMarks(state);
-        case 'set-fidushal-marks-kind':
-            return update2(state, 'values', 'fidushalMarksKind', action.payload);
-        case 'set-fidushal-marks-side':
-            return update2(state, 'values', 'fidushalMarksSide', action.payload);
+        case 'togle-fiducial-marks':
+            return togleFiducialMarks(state);
+        case 'set-fiducial-marks-kind':
+            return update2(state, 'values', 'fiducialMarksKind', action.payload);
+        case 'set-fiducial-marks-side':
+            return update2(state, 'values', 'fiducialMarksSide', action.payload);
         case 'set-modifications-requirements':
             return update2(state, 'values', 'modificationsRequirements', action.payload);
         case 'togle-text-from-rackel-side':
@@ -126,14 +126,14 @@ export default function reducer(state: State, action: Action): State {
                 selectValidator(state.values.sheetThickness),
                 equalMaybes
             );
-        case 'validate-fidushal-marks-kind':
-            return update2(state, 'errors', 'fidushalMarksKind',
-                selectValidator(state.values.fidushalMarksKind),
+        case 'validate-fiducial-marks-kind':
+            return update2(state, 'errors', 'fiducialMarksKind',
+                selectValidator(state.values.fiducialMarksKind),
                 equalMaybes
             );
-        case 'validate-fidushal-marks-side':
-            return update2(state, 'errors', 'fidushalMarksSide',
-                selectValidator(state.values.fidushalMarksSide),
+        case 'validate-fiducial-marks-side':
+            return update2(state, 'errors', 'fiducialMarksSide',
+                selectValidator(state.values.fiducialMarksSide),
                 equalMaybes
             );
         case 'validate-text-from-rackel-side':

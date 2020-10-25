@@ -2,7 +2,7 @@ import React from 'react';
 import { StencilForm } from '../FormData';
 
 interface Include {
-    fidushalMarks: boolean,
+    fiducialMarks: boolean,
     rackelSideText: boolean,
     pcbSideText: boolean,
     multiply: boolean
@@ -11,7 +11,7 @@ interface Include {
 function useIncludes(): Include {
     const { state } = React.useContext(StencilForm);
     return {
-        fidushalMarks: state.values.fidushalMarks,
+        fiducialMarks: state.values.fiducialMarks,
         rackelSideText: state.values.includeTextFromRackelSide,
         pcbSideText: state.values.includeTextFromPCBSide,
         multiply: state.values.multiply
