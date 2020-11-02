@@ -116,7 +116,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
 }) => (
     <TextField
         {...rest}
-variant={(outlined ? 'outlined' : 'filled') as any /* Typescirpt bug! At version 4.0.3 there is no problem */}
+variant={outlined ? 'outlined' : 'filled'}
         margin="normal"
         type="number"
         value={value}
