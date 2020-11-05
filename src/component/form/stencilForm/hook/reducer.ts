@@ -29,15 +29,15 @@ const togleFiducialMarks
         ),
     ], state);
 
-const togleTextFromRackelSide
+const togleTextFromSqueegeeSide
     : (state: State) => State
     = state => runState([
-        s => togle(s, 'includeTextFromRackelSide'),
+        s => togle(s, 'includeTextFromSqueegeeSide'),
         conditional(
-            s => s.values.includeTextFromRackelSide === false,
+            s => s.values.includeTextFromSqueegeeSide === false,
             t => runState([
-                s => update2(s, 'values', 'textFromRackelSide', ''),
-                s => update2(s, 'errors', 'textFromRackelSide', Nothing, equalMaybes)
+                s => update2(s, 'values', 'textFromSqueegeeSide', ''),
+                s => update2(s, 'errors', 'textFromSqueegeeSide', Nothing, equalMaybes)
             ], t)
         )
     ], state);
@@ -77,7 +77,7 @@ const togleMultiply
 export default function reducer(state: State, action: Action): State {
     switch(action.type) {
         case 'togle-file-side':
-            return togle(state, 'fileIsFromRackelSide');
+            return togle(state, 'fileIsFromSqueegeeSide');
         case 'set-count':
             return update2(state, 'values', 'count', action.payload);
         case 'set-sheet-thickness':
@@ -91,9 +91,9 @@ export default function reducer(state: State, action: Action): State {
         case 'set-modifications-requirements':
             return update2(state, 'values', 'modificationsRequirements', action.payload);
         case 'togle-text-from-rackel-side':
-            return togleTextFromRackelSide(state);
+            return togleTextFromSqueegeeSide(state);
         case 'set-text-from-rackel-side':
-            return update2(state, 'values', 'textFromRackelSide', action.payload);
+            return update2(state, 'values', 'textFromSqueegeeSide', action.payload);
         case 'togle-text-from-pcb-side':
             return togleTextFromPCBSide(state);
         case 'set-text-from-pcb-side':
@@ -137,8 +137,8 @@ export default function reducer(state: State, action: Action): State {
                 equalMaybes
             );
         case 'validate-text-from-rackel-side':
-            return update2(state, 'errors', 'textFromRackelSide',
-                textValidator(state.values.textFromRackelSide),
+            return update2(state, 'errors', 'textFromSqueegeeSide',
+                textValidator(state.values.textFromSqueegeeSide),
                 equalMaybes
             );
         case 'validate-text-from-pcb-side':
@@ -179,7 +179,7 @@ export default function reducer(state: State, action: Action): State {
         case 'clear-count-error':
             return update2(state, 'errors', 'count', Nothing, equalMaybes);
         case 'clear-text-from-rackel-side-error':
-            return update2(state, 'errors', 'textFromRackelSide', Nothing, equalMaybes);
+            return update2(state, 'errors', 'textFromSqueegeeSide', Nothing, equalMaybes);
         case 'clear-text-from-pcb-side-error':
             return update2(state, 'errors', 'textFromPCBSide', Nothing, equalMaybes);
         case 'clear-panels-count-x-error':

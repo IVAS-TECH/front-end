@@ -9,7 +9,7 @@ const Select = createSelect<FiducialMarksSide>();
 
 const optionText: Record<FiducialMarksSide, string> = {
     [FiducialMarksSide.PCBSide]: 'PCB side',
-    [FiducialMarksSide.RacelSide]: 'Rackel side',
+    [FiducialMarksSide.RacelSide]: 'Squeegee side',
     [FiducialMarksSide.BothSides]: 'From both sides'
 };
 

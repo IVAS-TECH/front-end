@@ -10,8 +10,8 @@ import FiducialMarks from '../../formField/stencil/FiducialMarks';
 import FiducialMarksKind from '../../formField/stencil/FiducialMarksKind';
 import FiducialMarksSide from '../../formField/stencil/FiducialMarksSide';
 import ModificationRequirements from '../../formField/stencil/ModificationRequirements';
-import TextFromRackelSide from '../../formField/stencil/TextFromRackelSide';
-import RackelSideText from '../../formField/stencil/RackelSideText';
+import TextFromSqueegeeSide from '../../formField/stencil/TextFromSqueegeeSide';
+import SqueegeeSideText from '../../formField/stencil/SqueegeeSideText';
 import TextFromPCBSide from '../../formField/stencil/TextFromPCBSide';
 import PCBSideText from '../../formField/stencil/PCBSideText';
 import Multiply from '../../formField/stencil/Multiply';
@@ -63,9 +63,9 @@ const Form: React.FC<{}> = () => {
             <ModificationRequirements />
             <Divider />
             <SectionTitle title="Text" />
-            <TextFromRackelSide />
+            <TextFromSqueegeeSide />
             <br/>
-            {include.rackelSideText && <RackelSideText />}
+            {include.rackelSideText && <SqueegeeSideText />}
             <TextFromPCBSide />
             {include.pcbSideText && <PCBSideText />}
             <Divider />

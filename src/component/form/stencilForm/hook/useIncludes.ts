@@ -12,7 +12,7 @@ function useIncludes(): Include {
     const { state } = React.useContext(StencilForm);
     return {
         fiducialMarks: state.values.fiducialMarks,
-        rackelSideText: state.values.includeTextFromRackelSide,
+        rackelSideText: state.values.includeTextFromSqueegeeSide,
         pcbSideText: state.values.includeTextFromPCBSide,
         multiply: state.values.multiply
     };

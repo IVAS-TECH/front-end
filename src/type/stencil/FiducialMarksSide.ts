@@ -1,6 +1,6 @@
 enum FiducialMarksSide {
     PCBSide = 'PCB-side',
-    RacelSide = 'Rackel-side',
+    RacelSide = 'Squeegee-side',
     BothSides = 'both-sides'
 };
 

@@ -11,15 +11,15 @@ import { TextError } from '../../../../formFieldValidator/text';
 
 export interface State {
     values: {
-        fileIsFromRackelSide: boolean,
+        fileIsFromSqueegeeSide: boolean,
         count: '' | number,
         sheetThickness: '' | SheetThickness,
         fiducialMarks: boolean,
         fiducialMarksKind: '' | FiducialMarksKind,
         fiducialMarksSide: '' | FiducialMarksSide,
         modificationsRequirements: string,
-        includeTextFromRackelSide: boolean,
-        textFromRackelSide: string,
+        includeTextFromSqueegeeSide: boolean,
+        textFromSqueegeeSide: string,
         includeTextFromPCBSide: boolean,
         textFromPCBSide: string,
         multiply: boolean,
@@ -37,7 +37,7 @@ export interface State {
         sheetThickness: Maybe<SelectError>,
         fiducialMarksKind: Maybe<SelectError>,
         fiducialMarksSide: Maybe<SelectError>,
-        textFromRackelSide: Maybe<TextError>,
+        textFromSqueegeeSide: Maybe<TextError>,
         textFromPCBSide: Maybe<TextError>,
         panelsCountX: Maybe<PositiveNumberError>,
         stepX: Maybe<NonNegativeNumberError>,
@@ -50,15 +50,15 @@ export interface State {
 
 export const empty: State = {
     values: {
-        fileIsFromRackelSide: false,
+        fileIsFromSqueegeeSide: false,
         count: 1,
         sheetThickness: '',
         fiducialMarks: false,
         fiducialMarksKind: '',
         fiducialMarksSide: '',
         modificationsRequirements: '',
-        includeTextFromRackelSide: false,
-        textFromRackelSide: '',
+        includeTextFromSqueegeeSide: false,
+        textFromSqueegeeSide: '',
         includeTextFromPCBSide: false,
         textFromPCBSide: '',
         multiply: false,
@@ -76,7 +76,7 @@ export const empty: State = {
         sheetThickness: Nothing,
         fiducialMarksKind: Nothing,
         fiducialMarksSide: Nothing,
-        textFromRackelSide: Nothing,
+        textFromSqueegeeSide: Nothing,
         textFromPCBSide: Nothing,
         panelsCountX: Nothing,
         stepX: Nothing,
@@ -161,19 +161,19 @@ export function setModificationsRequirements(reqs: string): SetModificationsRequ
     }
 };
 
-interface TogleTextFromRackelSide {
+interface TogleTextFromSqueegeeSide {
     type: 'togle-text-from-rackel-side',
 }
 
-export const togleTextFromRackelSide: TogleTextFromRackelSide
+export const togleTextFromSqueegeeSide: TogleTextFromSqueegeeSide
     = { type: 'togle-text-from-rackel-side' };
 
-interface SetTextFromRackelSide {
+interface SetTextFromSqueegeeSide {
     type: 'set-text-from-rackel-side',
     payload: string
 }
 
-export function setTextFromRackelSides(text: string): SetTextFromRackelSide {
+export function setTextFromSqueegeeSides(text: string): SetTextFromSqueegeeSide {
     return {
         type: 'set-text-from-rackel-side',
         payload: text
@@ -321,11 +321,11 @@ interface ValidateFiducialMarksSide {
 export const validateFiducialMarksSide: ValidateFiducialMarksSide
     = { type: 'validate-fiducial-marks-side' };
 
-interface ValidateTextFromRackelSide {
+interface ValidateTextFromSqueegeeSide {
     type: 'validate-text-from-rackel-side'
 }
 
-export const validateTextFromRackelSide: ValidateTextFromRackelSide
+export const validateTextFromSqueegeeSide: ValidateTextFromSqueegeeSide
     = { type: 'validate-text-from-rackel-side' };
 
 interface ValidateTextFromPCBSide {
@@ -386,11 +386,11 @@ interface ClearCountError {
 export const clearCountError: ClearCountError
     = { type: 'clear-count-error' };
 
-interface ClearTextFromRackelSideError {
+interface ClearTextFromSqueegeeSideError {
     type: 'clear-text-from-rackel-side-error'
 }
 
-export const clearTextFromRackelSideError: ClearTextFromRackelSideError
+export const clearTextFromSqueegeeSideError: ClearTextFromSqueegeeSideError
     = { type: 'clear-text-from-rackel-side-error' };
 
 interface ClearTextFromPCBSideError {
@@ -438,8 +438,8 @@ export type Action
     | SetFiducialMarksKind
     | SetFiducialMarksSide
     | SetModificationsRequirements
-    | TogleTextFromRackelSide
-    | SetTextFromRackelSide
+    | TogleTextFromSqueegeeSide
+    | SetTextFromSqueegeeSide
     | TogleTextFromPCBSide
     | SetTextFromPCBSide
     | TogleMultiply
@@ -455,7 +455,7 @@ export type Action
     | ValidateSheetThickness
     | ValidateFiducialMarksKind
     | ValidateFiducialMarksSide
-    | ValidateTextFromRackelSide
+    | ValidateTextFromSqueegeeSide
     | ValidateTextFromPCBSide
     | ValidatePanelsCountX
     | ValidateStepX
@@ -464,7 +464,7 @@ export type Action
     | ValidatePosition
     | ValidateImagePosition
     | ClearCountError
-    | ClearTextFromRackelSideError
+    | ClearTextFromSqueegeeSideError
     | ClearTextFromPCBSideError
     | ClearPanelsCountXError
     | ClearStepXError

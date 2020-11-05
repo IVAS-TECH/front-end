@@ -5,12 +5,12 @@ import { togleFileSide } from '../../form/stencilForm/hook/state';
 
 const FileSide: React.FC<{}> = () => {
     const [checked, dispatch] = useFormData(
-        state => state.values.fileIsFromRackelSide
+        state => state.values.fileIsFromSqueegeeSide
     );
     return (
         <CheckboxWithLabel
             checked={checked}
-            label="Is file with side from Rackel side?"
+            label="Is file with side from Squeegee side?"
             onToggle={() => dispatch(togleFileSide)} />
     );
 };
