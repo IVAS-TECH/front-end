@@ -7,7 +7,8 @@ interface TextareaProps {
 
 const style: React.CSSProperties = {
     width: '100%',
-    resize: 'vertical'
+    resize: 'vertical',
+    maxHeight: '30rem'
 };
 
 const Textarea: React.FC<TextareaProps> = ({ rows, placeholder }) => (
